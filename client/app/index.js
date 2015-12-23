@@ -3,6 +3,7 @@ import 'toastr.scss';
 import './app.style.scss';
 
 import sjCore from 'sanji-core-ui';
+import 'angular-drag-and-drop-lists';
 
 // Layout Page
 import landing from './landing';
@@ -13,7 +14,7 @@ import AppController from './app.controller';
 
 let app = angular.module('webapp', [
   sjCore,
-  ngSortable,
+  'dndLists',
   landing
 ]);
 

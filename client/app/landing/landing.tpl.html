@@ -1,19 +1,115 @@
 <script type ="text/ng-template" id="landing.tpl.html">
-  <div layout="row" layout-padding layout-align="center center">
-    <div flex="33">
-      <md-card class="sj-window">
-        <md-card-header class="sj-window-header">
-          <md-card-header-text layout layout-align="space-between center">
-            <h3 flex>{{vm.windowName}}</h3>
-          </md-card-header-text>
-        </md-card-header>
-        <md-card-content>
-        </md-card-content>
-      </md-card>
+  <div class="landing-wrap">
+    <div class="fill-height" flex="auto" layout>
+      <md-content class="fill-height" flex="20">
+        <md-tabs class="fill-height" md-border-bottom>
+          <md-tab ng-repeat="tab in vm.tabs track by $index" label="{{::tab.name}}">
+            <div class="overflow-hidden">
+              <md-list>
+                <md-list-item class="element" ng-repeat="item in tab.elements track by $index"
+                dnd-draggable="item"
+                dnd-effect-allowed="copy">
+                  <p ng-bind="item.optionsTypes || item.type"></p>
+                  <formly-form class="md-secondary" fields="[item]"></formly-form>
+                </md-list-item>
+              </md-list>
+            </div>
+          </md-tab>
+        </md-tabs>
+      </md-content>
+      <div flex="auto" layout layout-align="space-around top">
+        <div flex="33">
+          <h3 class="md-padding">Editor</h3>
+          <md-card class="sj-window">
+            <md-card-header class="sj-window-header">
+              <md-card-header-text layout layout-align="space-between center">
+                <h3 flex>
+                  <input type="text" ng-model="vm.data.windowName"
+                  placeholder="Input window name">
+                </h3>
+              </md-card-header-text>
+            </md-card-header>
+            <md-card-content class="form-editor-zone">
+              <ul dnd-list="vm.data.fields">
+                <li class="text-center" ng-if="0===vm.data.fields.length"><h2>Drag & Drop Element Here</h2></li>
+                <li ng-repeat="item in vm.data.fields"
+                    dnd-draggable="item"
+                    dnd-moved="vm.moved($index)"
+                    dnd-effect-allowed="move"
+                    dnd-selected="vm.data.selected = item">
+                    {{item.type}}
+                </li>
+              </ul>
+            </md-card-content>
+          </md-card>
+        </div>
+        <div flex="33">
+          <h3 class="md-padding">Preview</h3>
+          <sanji-window window-id="window1" window-name="{{vm.data.windowName}}" show-loading-btn>
+            <sanji-window-state state-name="sanji-form" default-state
+            link-name="Settings" icon="settings">
+              <form ng-submit="vm.save(vm.data)"
+              role="form" layout="column" layout-padding novalidate>
+                <formly-form
+                  model="vm.data.content"
+                  fields="vm.data.fields"
+                  options="vm.data.formOptions"
+                  form="vm.form">
+                  <div layout layout-align="end center">
+                    <md-button type="submit"
+                    class="md-raised md-primary" ng-disabled="vm.form.$invalid">
+                      <sapn translate="SAVE"></span>
+                    </md-button>
+                  </div>
+                </formly-form>
+              </form>
+            </sanji-window-state>
+          </sanji-window>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div layout="row" layout-align="center center">
-    <span class="md-caption">from the Sanji Team</span>
-  </div>
+  <footer>
+    <md-fab-speed-dial md-direction="up" class="md-scale">
+      <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-primary">
+          <ng-md-icon icon="more_vert"></ng-md-icon>
+        </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+        <md-button aria-label="backup"
+          class="md-fab md-raised md-default md-mini"
+          ng-click="vm.add($event)">
+          <md-tooltip>
+            <span>Backup</span>
+          </md-tooltip>
+          <ng-md-icon icon="file_download"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="restore"
+          class="md-fab md-raised md-default md-mini"
+          ng-click="vm.remove()">
+          <md-tooltip>
+            <span>Restore</span>
+          </md-tooltip>
+          <ng-md-icon icon="restore"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="export"
+          class="md-fab md-raised md-default md-mini"
+          ng-click="vm.remove()">
+          <md-tooltip>
+            <span>Export</span>
+          </md-tooltip>
+          <ng-md-icon icon="archive"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="upload"
+          class="md-fab md-raised md-default md-mini"
+          ng-click="vm.remove()">
+          <md-tooltip>
+            <span>Upload</span>
+          </md-tooltip>
+          <ng-md-icon icon="cloud_upload"></ng-md-icon>
+        </md-button>
+      </md-fab-actions>
+    </md-fab-speed-dial>
+  </footer>
 </script>

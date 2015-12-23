@@ -11,4 +11,19 @@ body {
 
 main {
   background-color: #edecec;
+  height: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }

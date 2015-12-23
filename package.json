@@ -103,7 +103,7 @@
     "multer": "~1.1.0",
     "passport": "~0.3.2",
     "passport-local": "~1.0.0",
-    "sanji-core-ui": "~1.10.1",
+    "sanji-core-ui": "~1.10.2",
     "semver": "~5.1.0",
     "sequelize": "~3.15.0",
     "shelljs": "~0.5.3",

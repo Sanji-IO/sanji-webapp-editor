@@ -22,8 +22,7 @@ var config = {
       'angular-material.css': nodeRoot + '/angular-material/angular-material.css',
       'angular-material-icons.css': nodeRoot + '/angular-material-icons/angular-material-icons.css',
       'toastr.scss': nodeRoot + '/toastr/toastr.scss',
-      'svg-morpheus': nodeRoot + '/svg-morpheus/compile/unminified/svg-morpheus.js',
-      'ng-sortable.css': nodeRoot + '/ng-sortable/dist/ng-sortable.min.css'
+      'svg-morpheus': nodeRoot + '/svg-morpheus/compile/unminified/svg-morpheus.js'
     },
     extensions: ['', '.js', '.json', 'html', 'scss', 'css']
   },
