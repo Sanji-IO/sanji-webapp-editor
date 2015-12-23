@@ -37,7 +37,7 @@
                     dnd-moved="vm.moved($index)"
                     dnd-effect-allowed="move"
                     dnd-selected="vm.data.selected = item">
-                    {{item.type}}
+                    {{item.optionsTypes || item.type}}
                 </li>
               </ul>
             </md-card-content>
