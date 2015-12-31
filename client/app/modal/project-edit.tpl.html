@@ -1,0 +1,28 @@
+<script type ="text/ng-template" id="project-edit.tpl.html">
+  <md-dialog aria-label="Edit Project Information" ng-cloak>
+  <form role="form" ng-submit="vm.submit(vm.data)" ng-controller="ProjectEditController as vm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Edit Project Information</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="vm.cancel()">
+          <ng-md-icon icon="close"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding">
+      <formly-form
+        model="vm.data"
+        fields="vm.fields"
+        form="vm.form">
+        <div layout layout-align="end center">
+          <md-button type="submit"
+          class="md-raised md-primary" ng-disabled="vm.form.$invalid">
+            <sapn translate="SAVE"></span>
+          </md-button>
+        </div>
+      </formly-form>
+    </md-dialog-content>
+  </form>
+</md-dialog>
+</script>

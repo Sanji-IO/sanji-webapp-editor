@@ -7,3 +7,4 @@ server/webapp.db
 dist/
 client/assets/apps/
 server/market/
+sanji-*/

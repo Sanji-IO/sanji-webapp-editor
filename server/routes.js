@@ -11,7 +11,7 @@ module.exports = function(app) {
 
   var apiPath = config.apiPath;
   // Insert routes below
-  // app.use(apiPath + '/users', require('./api/user'));
+  app.use(apiPath + '/generator', require('./api/generator'));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')

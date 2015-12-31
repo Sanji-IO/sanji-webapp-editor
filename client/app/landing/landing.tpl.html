@@ -18,15 +18,21 @@
         </md-tabs>
       </md-content>
       <div flex="auto" layout layout-align="space-around top">
-        <div flex="33">
-          <h3 class="md-padding">Editor</h3>
+        <div flex="40">
+          <h3 class="md-padding">Editor
+            <md-button aria-label="edit project information" class="md-raised md-primary"
+              ng-click="vm.edit($event)">
+              <md-tooltip>
+                <span>Edit Project</span>
+              </md-tooltip>
+              <ng-md-icon icon="edit"></ng-md-icon>
+              Project
+            </md-button>
+          </h3>
           <md-card class="sj-window">
             <md-card-header class="sj-window-header">
               <md-card-header-text layout layout-align="space-between center">
-                <h3 flex>
-                  <input type="text" ng-model="vm.data.windowName"
-                  placeholder="Input window name">
-                </h3>
+                <h3 flex ng-bind="vm.project.moduleName"></h3>
               </md-card-header-text>
             </md-card-header>
             <md-card-content class="form-editor-zone">
@@ -43,17 +49,15 @@
             </md-card-content>
           </md-card>
         </div>
-        <div flex="33">
+        <div flex="40">
           <h3 class="md-padding">Preview</h3>
-          <sanji-window window-id="window1" window-name="{{vm.data.windowName}}" show-loading-btn>
+          <sanji-window window-id="window1" window-name="{{vm.project.moduleName}}" show-loading-btn>
             <sanji-window-state state-name="sanji-form" default-state
             link-name="Settings" icon="settings">
               <form ng-submit="vm.save(vm.data)"
               role="form" layout="column" layout-padding novalidate>
                 <formly-form
-                  model="vm.data.content"
                   fields="vm.data.fields"
-                  options="vm.data.formOptions"
                   form="vm.form">
                   <div layout layout-align="end center">
                     <md-button type="submit"
@@ -79,7 +83,7 @@
       <md-fab-actions>
         <md-button aria-label="backup"
           class="md-fab md-raised md-default md-mini"
-          ng-click="vm.add($event)">
+          ng-click="vm.backup(vm.data)">
           <md-tooltip>
             <span>Backup</span>
           </md-tooltip>
@@ -87,7 +91,7 @@
         </md-button>
         <md-button aria-label="restore"
           class="md-fab md-raised md-default md-mini"
-          ng-click="vm.remove()">
+          ng-click="vm.restore($event)">
           <md-tooltip>
             <span>Restore</span>
           </md-tooltip>
@@ -95,7 +99,7 @@
         </md-button>
         <md-button aria-label="export"
           class="md-fab md-raised md-default md-mini"
-          ng-click="vm.remove()">
+          ng-click="vm.export(vm.data)">
           <md-tooltip>
             <span>Export</span>
           </md-tooltip>
@@ -103,7 +107,7 @@
         </md-button>
         <md-button aria-label="upload"
           class="md-fab md-raised md-default md-mini"
-          ng-click="vm.remove()">
+          ng-click="">
           <md-tooltip>
             <span>Upload</span>
           </md-tooltip>

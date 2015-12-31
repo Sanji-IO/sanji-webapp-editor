@@ -1,0 +1,27 @@
+<script type ="text/ng-template" id="resource-upload.tpl.html">
+  <md-dialog aria-label="Upload Your Resource Config" ng-cloak>
+  <form ng-controller="ResourceUploadController as vm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Upload Your Resource Config</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Close dialog" ng-click="vm.cancel()">
+          <ng-md-icon icon="close"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div class="upload-area"
+        ngf-select="vm.upload($files)"
+        ngf-drop="vm.upload($files)"
+        ngf-pattern="*.json"
+        ngf-max-size="'1MB'"
+        ngf-multiple="false">
+          <h2>Select or Drop Here</h2>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>
+</script>
