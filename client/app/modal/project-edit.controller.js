@@ -14,8 +14,9 @@ class ProjectEditController {
     this.AppService.callGeneratorSanjiUI(data)
       .then(res => {
         if (undefined === this.data.uuid) {
-          this.data.uuid = res.data.uuid
+          this.data.uuid = res.data.uuid;
         }
+        this.cancel();
       });
   }
 }

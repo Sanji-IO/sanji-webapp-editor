@@ -21,7 +21,7 @@
         <div flex="40">
           <h3 class="md-padding">Editor
             <md-button aria-label="edit project information" class="md-raised md-primary"
-              ng-click="vm.edit($event)">
+              ng-click="vm.editProject($event)">
               <md-tooltip>
                 <span>Edit Project</span>
               </md-tooltip>
@@ -46,7 +46,7 @@
                     <span ng-bind="item.optionsTypes || item.type"></span>
                     <md-button aria-label="edit project information"
                     class="md-warn"
-                      ng-click="vm.edit($event)">
+                      ng-click="vm.editField($event, $index, item)">
                       <ng-md-icon icon="settings"></ng-md-icon>
                       Settings
                     </md-button>

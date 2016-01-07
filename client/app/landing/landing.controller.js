@@ -10,12 +10,41 @@ class LandingController {
     };
   }
 
-  edit(event) {
+  _transformField(index, field) {
+    const tmp = this._.cloneDeep(field.data);
+    let newField = Object.assign({}, tmp.source);
+    newField.data = this._.cloneDeep(field.data);
+    this.data.fields.splice(index, 1, newField);
+  }
+
+  editProject(event) {
     this.$mdDialog.show({
       templateUrl: 'project-edit.tpl.html',
       parent: angular.element(document.body),
       targetEvent: event,
-      clickOutsideToClose: true
+      clickOutsideToClose: true,
+      controller: 'ProjectEditController',
+      controllerAs: 'vm',
+      bindToController: true
+    });
+  }
+
+  editField(event, index, field) {
+    this.$mdDialog.show({
+      templateUrl: 'field-edit.tpl.html',
+      parent: angular.element(document.body),
+      targetEvent: event,
+      clickOutsideToClose: true,
+      controller: 'FieldEditController',
+      controllerAs: 'vm',
+      locals: {
+        data: field.data.source,
+        fields: field.data.config,
+        transformCallback: () => {
+          this._transformField(index, field);
+        }
+      },
+      bindToController: true
     });
   }
 
@@ -24,8 +53,8 @@ class LandingController {
   }
 
   backup(data) {
-    let payload = _.cloneDeep(this.project);
-    payload.fields = data.fields;
+    let payload = this._.cloneDeep(this.project);
+    payload.fields = this._.pluck(data.fields, 'data.source');
     this.AppService.backup(payload);
   }
 
