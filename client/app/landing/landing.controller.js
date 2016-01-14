@@ -12,6 +12,10 @@ class LandingController {
 
   _transformField(index, field) {
     const tmp = this._.cloneDeep(field.data);
+    if ('radio' === field.type || 'select' === field.type) {
+      // remove side effect
+      delete tmp.source['1'];
+    }
     let newField = Object.assign({}, tmp.source);
     newField.data = this._.cloneDeep(field.data);
     this.data.fields.splice(index, 1, newField);

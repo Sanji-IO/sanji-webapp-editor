@@ -621,9 +621,45 @@ class MenuService {
           },
           {
             type: 'radio',
+            data: {
+              config: [
+                {
+                  key: 'key',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'Key'
+                  }
+                }
+              ],
+              source: {
+                type: 'radio',
+                key: '',
+                templateOptions: {
+                  options: []
+                }
+              }
+            }
           },
           {
-            type: 'select'
+            type: 'select',
+            data: {
+              config: [
+                {
+                  key: 'key',
+                  type: 'input',
+                  templateOptions: {
+                    label: 'Key'
+                  }
+                }
+              ],
+              source: {
+                type: 'select',
+                key: '',
+                templateOptions: {
+                  options: []
+                }
+              }
+            }
           },
           {
             type: 'checkbox',
