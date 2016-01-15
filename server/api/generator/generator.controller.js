@@ -1,6 +1,6 @@
 'use strict';
 
-var assign = require('lodash/object/assign');
+var assign = require('lodash/assign');
 var yeoman = require('yeoman-environment');
 var fs = require('fs-extra');
 var path = require('path');

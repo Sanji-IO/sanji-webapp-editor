@@ -1,11 +1,11 @@
 'use strict';
 
-var _ = require('lodash');
+var merge = require('lodash/merge');
 
 /**
  * Load environment configuration
  */
-module.exports = _.merge(
+module.exports = merge(
     require('./config.all.js'),
     require('./config.' + process.env.NODE_ENV + '.js') || {});
 
