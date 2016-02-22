@@ -10,7 +10,7 @@
                 dnd-draggable="item"
                 dnd-effect-allowed="copy">
                   <p ng-bind="item.optionsTypes || item.type"></p>
-                  <formly-form class="md-secondary" fields="[item]"></formly-form>
+                  <formly-form model="item.model" class="md-secondary" fields="[item]"></formly-form>
                 </md-list-item>
               </md-list>
             </div>
@@ -63,6 +63,7 @@
               <form ng-submit="vm.save(vm.data)"
               role="form" layout="column" layout-padding novalidate>
                 <formly-form
+                  model="vm.data.model"
                   fields="vm.data.fields"
                   form="vm.form">
                   <div layout layout-align="end center">

@@ -4,7 +4,9 @@ class LandingController {
     LandingController.$inject.forEach((item, index) => this[item] = injects[index]);
     this.project = this.AppService.getProjectData();
     this.tabs = this.menu.get();
+    this.model = {};
     this.data = {
+      model: {},
       selected: null,
       fields: this.AppService.getFields()
     };
@@ -58,7 +60,7 @@ class LandingController {
 
   backup(data) {
     let payload = this._.cloneDeep(this.project);
-    payload.fields = this._.pluck(data.fields, 'data.source');
+    payload.fields = this._.map(data.fields, 'data.source');
     this.AppService.backup(payload);
   }
 

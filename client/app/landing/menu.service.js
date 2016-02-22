@@ -10,6 +10,7 @@ class MenuService {
           {
             type: 'input',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -53,6 +54,7 @@ class MenuService {
           {
             type: 'url',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -96,6 +98,7 @@ class MenuService {
           {
             type: 'email',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -139,6 +142,7 @@ class MenuService {
           {
             type: 'number',
             data: {
+              model: 0,
               config: [
                 {
                   key: 'key',
@@ -196,12 +200,12 @@ class MenuService {
             }
           },
           {
-            type: 'input',
-            optionsTypes: 'float',
+            type: 'float',
             templateOptions: {
-              label: 'FORM_LABEL_PORT'
+              label: 'FORM_LABEL_FLOAT'
             },
             data: {
+              model: 0,
               config: [
                 {
                   key: 'key',
@@ -233,8 +237,7 @@ class MenuService {
                 }
               ],
               source: {
-                type: 'input',
-                optionsTypes: 'float',
+                type: 'float',
                 key: '',
                 templateOptions: {
                   require: false,
@@ -246,6 +249,7 @@ class MenuService {
           {
             type: 'password',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -290,6 +294,7 @@ class MenuService {
             type: 'input',
             optionsTypes: 'ip',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -338,6 +343,7 @@ class MenuService {
               label: 'FORM_LABEL_PORT'
             },
             data: {
+              model: 0,
               config: [
                 {
                   key: 'key',
@@ -386,6 +392,7 @@ class MenuService {
               label: 'FORM_LABEL_MAC'
             },
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -434,6 +441,7 @@ class MenuService {
               label: 'FORM_LABEL_HOSTNAME'
             },
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -482,6 +490,7 @@ class MenuService {
               label: 'FORM_LABEL_NAME'
             },
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -530,6 +539,7 @@ class MenuService {
               label: 'FORM_LABEL_LATITUDE'
             },
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -578,6 +588,7 @@ class MenuService {
               label: 'FORM_LABEL_LONGITUDE'
             },
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -622,6 +633,7 @@ class MenuService {
           {
             type: 'radio',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -643,6 +655,7 @@ class MenuService {
           {
             type: 'select',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -664,6 +677,7 @@ class MenuService {
           {
             type: 'checkbox',
             data: {
+              model: '',
               config: [
                 {
                   key: 'key',
@@ -700,6 +714,7 @@ class MenuService {
           {
             type: 'switch',
             data: {
+              model: null,
               config: [
                 {
                   key: 'key',
@@ -736,6 +751,7 @@ class MenuService {
           {
             type: 'range',
             data: {
+              model: null,
               config: [
                 {
                   key: 'key',
@@ -788,6 +804,7 @@ class MenuService {
           {
             type: 'date',
             data: {
+              model: null,
               config: [
                 {
                   key: 'key',
@@ -824,6 +841,7 @@ class MenuService {
           {
             type: 'datepicker',
             data: {
+              model: null,
               config: [
                 {
                   key: 'key',
@@ -860,6 +878,7 @@ class MenuService {
           {
             type: 'datetimepicker',
             data: {
+              model: null,
               config: [
                 {
                   key: 'key',
